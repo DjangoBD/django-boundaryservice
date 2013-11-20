@@ -159,6 +159,9 @@ class Command(BaseCommand):
                 notes=config['notes'],
                 count=len(layer),
                 metadata_fields=layer.fields)
+        else:
+            raise Exception(
+                'This data set contains an unknown data type: %s' % data_type)
 
         for datasource in datasources:
             log.info("Loading %s from %s" % (kind, datasource.name))
